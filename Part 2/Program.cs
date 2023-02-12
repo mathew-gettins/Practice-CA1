@@ -1,51 +1,65 @@
-﻿using System.Net.NetworkInformation;
-
-namespace Part_2
+﻿namespace Part_2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             string status = "";
-            int years = 0; 
-            double hours = 0;
-            status = "";
+            int years = 0;
+            int hours = 0;
 
-            string[] name = new string[1];
-            double[] wages= new double[1];
+            string[] names = new string[10];
+            double[] wages = new double[10];
 
-
-            for (int i = 0; i < name.Length; i++)
+            for (int i = 0; i < names.Length; i++)
             {
                 Console.Write("Enter Name         : ");
-                name[i] = Console.ReadLine();
+                names[i] = Console.ReadLine();
 
                 Console.Write("Status (W/H)       : ");
-                status = Console.ReadLine();    
+                status = Console.ReadLine();
 
                 Console.Write("Enter hours        : ");
-                hours = double.Parse(Console.ReadLine());
+                hours = int.Parse(Console.ReadLine());
 
-                Console.Write("Enter years    : ");
+                Console.Write("Enter years        : ");
                 years = int.Parse(Console.ReadLine());
 
-                Console.Write($"{name[i]} you have worked {hours} and your wages are {Wages}"); 
+                wages[i] = Wages(status, hours, years);
 
+                Console.WriteLine($"{names[i]} you worked {hours} hours and your wages are €{wages[i]}");
             }
+        }
 
-        static int Wages()
-            {   
-                if (status = "w")
+        static double Wages(string status, int hours, int years)
+        {
+            int overtime = 15;
+            double threeYearService = 0.10;
+            int weekPay = 500;
+            double wageAmount = 0;
+
+            if (status == "W")
+            {
+                if (hours > 40)
                 {
-
+                    wageAmount = (hours - 40) * overtime + weekPay;
                 }
-                return 0;
-
+                else
+                {
+                    wageAmount = weekPay;
+                }
+            }
+            else
+            {
+                wageAmount = hours * 12;
             }
 
+            if (years > 3)
+            {
+                wageAmount = wageAmount * (1 + threeYearService);
+            }
 
-
-
+            return wageAmount;
         }
     }
 }
