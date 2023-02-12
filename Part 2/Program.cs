@@ -16,7 +16,7 @@
         {
             int choice;
            
-            {
+            
                 for (int i = 0; i < names.Length; i++)
                 {
                     Console.Write("\nEnter Name         : ");
@@ -36,7 +36,7 @@
                     Console.WriteLine($"\n{names[i]} you worked {hours} hours and your wages are €{wages[i]}");
                     Console.WriteLine("");
 
-                    Console.WriteLine("Do you want to continue? (1. Yes, 2. No)");
+                    Console.Write("Do you want to continue? (1. Yes, 2. No)");
                     choice = int.Parse(Console.ReadLine());
 
                     if (choice != 1)
@@ -47,7 +47,7 @@
                     {
                         Menu();
                     }
-                }
+                
             } 
         }
 
@@ -113,7 +113,7 @@
             Console.WriteLine("Name                Amount Paid");
             for (int i = 0; i < wages.Length; i++)
             {
-                Console.WriteLine($"{names[i]}        {wages[i]}");
+                Console.Write($"{names[i]}        {wages[i]}");
             }
             
         }
