@@ -11,7 +11,7 @@ namespace Part_1
 
         public static int CalculateTip(double amount, string rating)
         {
-            rating = rating.ToLower();                           // Convert the rating to lower case for case-insensitivity
+            rating = rating.ToLower();                          // Convert the rating to lower case for case-insensitivity
                                                           
             switch (rating)                                      // Use a switch statement to get tip based on rating
             {
